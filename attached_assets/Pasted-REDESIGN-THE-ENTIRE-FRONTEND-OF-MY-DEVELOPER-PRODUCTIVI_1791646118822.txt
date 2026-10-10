@@ -1,0 +1,97 @@
+REDESIGN THE ENTIRE FRONTEND OF MY DEVELOPER PRODUCTIVITY METRICS DASHBOARD.
+
+Create a visually stunning, unique, premium SaaS analytics interface
+inspired by modern developer tools and futuristic data intelligence
+platforms.
+
+DESIGN CONCEPT:
+"DevPulse — Developer Intelligence Center"
+
+VISUAL STYLE:
+- Dark midnight-navy background with electric blue, violet, and cyan accents.
+- Glassmorphism cards with subtle transparency and elegant borders.
+- Soft glowing highlights, sophisticated shadows, and smooth transitions.
+- Modern typography, generous spacing, and a polished professional layout.
+- Animated gradient accents and subtle background effects.
+- Interactive charts with custom tooltips and smooth transitions.
+- Responsive design for laptops, tablets, and mobile devices.
+
+DASHBOARD LAYOUT:
+
+1. SIDEBAR:
+Create a sleek collapsible sidebar with icons and navigation for:
+Overview, Developers, Pull Requests, Reviews, Issues, Workload,
+Collaboration, Code Hotspots, FSS & PRI, Trends, Insights, and Settings.
+
+2. TOP NAVIGATION:
+Include the DevPulse logo, repository selector, date-range filter,
+live/demo data indicator, refresh button, and profile avatar.
+
+3. HERO SECTION:
+Display the heading "Developer Intelligence Center".
+Add the subtitle "Turn development activity into actionable insights."
+Include a subtle animated visualization representing software activity.
+
+4. KPI CARDS:
+Create elegant cards displaying:
+Total Developers, Merged Pull Requests, Average Lead Time,
+Review Response Time, Stale Work Ratio, Focus Stability Score,
+and Productivity Recovery Index.
+
+Each card should include a meaningful icon, computed value,
+short explanation, and trend indicator where historical data supports it.
+
+5. INTERACTIVE ANALYTICS:
+Create visually rich charts for:
+- Developer productivity trends
+- Pull request throughput
+- Review responsiveness
+- Workload distribution
+- Collaboration networks
+- Code change hotspots
+- Focus Stability Score
+- Productivity Recovery Index
+
+6. DEVELOPER COMPARISON:
+Create an interactive developer comparison interface with profile
+avatars or initials, metric summaries, and comparison charts.
+
+7. SMART INSIGHTS:
+Create visually distinct recommendation cards highlighting
+review bottlenecks, stale work, workload imbalance, and frequently
+modified files. Every recommendation must be based on calculated data.
+
+8. CUSTOM METRICS:
+Give FSS and PRI a dedicated visual section with score indicators,
+trend charts, formula explanations, and limitations.
+
+9. MICRO-INTERACTIONS:
+Add hover effects, animated number transitions, skeleton loading
+states, smooth page transitions where supported, and interactive
+chart tooltips.
+
+10. EMPTY AND ERROR STATES:
+Design attractive messages for empty repositories, API failures,
+missing data, and loading states.
+
+11. RESPONSIVENESS:
+Ensure the sidebar, cards, tables, and charts adapt properly to
+different screen sizes.
+
+TECHNICAL REQUIREMENTS:
+Use Python and Streamlit with custom CSS and Plotly.
+Use reusable components and consistent design tokens.
+Keep all existing backend functionality and metric calculations intact.
+Do not replace working calculations with hardcoded sample values.
+All filters, charts, buttons, and navigation must remain functional.
+
+Use synthetic data only in clearly labelled demo mode.
+Never present demo data as real GitHub activity.
+
+IMPORTANT:
+Do not create a generic Streamlit dashboard.
+Make the interface visually distinctive, cohesive, polished,
+and presentation-ready.
+
+Implement the frontend directly in the project, run the application,
+and fix layout and functionality issues.

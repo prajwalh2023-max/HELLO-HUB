@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background)); --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border)); --color-input: hsl(var(--input)); --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card)); --color-card-foreground: hsl(var(--card-foreground)); --color-card-border: hsl(var(--card-border));
+  --color-popover: hsl(var(--popover)); --color-popover-foreground: hsl(var(--popover-foreground)); --color-popover-border: hsl(var(--popover-border));
+  --color-primary: hsl(var(--primary)); --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary)); --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted)); --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent)); --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive)); --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-chart-1: hsl(var(--chart-1)); --color-chart-2: hsl(var(--chart-2)); --color-chart-3: hsl(var(--chart-3)); --color-chart-4: hsl(var(--chart-4)); --color-chart-5: hsl(var(--chart-5));
+  --font-sans: var(--app-font-sans); --font-mono: var(--app-font-mono); --radius-lg: var(--radius);
+}
+:root {
+  color-scheme: dark;
+  --background: 224 35% 9%; --foreground: 218 33% 93%;
+  --border: 220 22% 20%; --input: 220 22% 20%;
+  --card: 224 30% 12%; --card-foreground: 218 33% 93%; --card-border: 220 24% 21%;
+  --popover: 224 30% 12%; --popover-foreground: 218 33% 93%; --popover-border: 220 24% 21%;
+  --primary: 215 95% 62%; --primary-foreground: 224 35% 9%;
+  --secondary: 228 25% 18%; --secondary-foreground: 218 33% 90%;
+  --muted: 224 23% 17%; --muted-foreground: 218 15% 62%;
+  --accent: 190 90% 54%; --accent-foreground: 224 35% 9%;
+  --destructive: 0 72% 62%; --destructive-foreground: 220 20% 98%;
+  --ring: 215 95% 62%; --chart-1: 215 95% 62%; --chart-2: 266 88% 72%; --chart-3: 187 87% 55%; --chart-4: 39 92% 66%; --chart-5: 338 78% 67%;
+  --sidebar: 225 36% 8%; --sidebar-foreground: 218 25% 82%; --sidebar-border: 220 22% 18%; --sidebar-primary: 215 95% 62%; --sidebar-primary-foreground: 224 35% 9%; --sidebar-accent: 224 27% 15%; --sidebar-accent-foreground: 218 33% 93%; --sidebar-ring: 215 95% 62%;
+  --app-font-sans: 'Manrope', sans-serif; --app-font-serif: Georgia, serif; --app-font-mono: 'DM Mono', monospace; --radius: 14px;
+  --button-outline: rgba(255,255,255,.12); --badge-outline: rgba(255,255,255,.08); --elevate-1: rgba(255,255,255,.035); --elevate-2: rgba(255,255,255,.07);
+}
+.dark { color-scheme: dark; }
+@layer base {
+  * { @apply border-border; }
+  body { @apply font-sans antialiased bg-background text-foreground; margin:0; min-width:320px; }
+  button, select, input { font: inherit; }
+}
+#root { min-height:100dvh; }
+.app-shell { min-height:100dvh; background: radial-gradient(ellipse at 68% 0%, rgba(51,95,190,.13), transparent 34%), #101522; }
+.glass { background:linear-gradient(145deg,rgba(24,33,53,.86),rgba(19,27,44,.79)); border:1px solid rgba(129,155,201,.12); box-shadow:0 12px 38px rgba(2,7,18,.12), inset 0 1px 0 rgba(255,255,255,.025); backdrop-filter:blur(12px); }
+.sidebar { background:linear-gradient(180deg,#111827,#101522 72%); border-right:1px solid rgba(129,155,201,.12); }
+.nav-link { transition:background .18s ease,color .18s ease,transform .18s ease; }
+.nav-link:hover { background:rgba(115,151,221,.09); transform:translateX(2px); }
+.nav-link.active { color:#b8d3ff;background:linear-gradient(90deg,rgba(68,132,255,.18),rgba(68,132,255,.04)); box-shadow:inset 2px 0 #5796ff; }
+.enter { animation:rise .42s both; }
+@keyframes rise { from {opacity:0;transform:translateY(8px)} to {opacity:1;transform:translateY(0)} }
+.soft-scroll::-webkit-scrollbar { width:6px;height:6px; } .soft-scroll::-webkit-scrollbar-thumb { background:#34425c;border-radius:9px; }
+@media (max-width:767px) {
+  .sidebar { width:56px !important; }
+  .sidebar > div:first-child { padding-left:10px;padding-right:10px;justify-content:center; }
+  .sidebar > div:first-child > div:nth-child(2), .sidebar > div:nth-child(2) > div, .sidebar > div:nth-child(2) > span:last-child,
+  .sidebar nav > div > div:first-child, .sidebar .nav-link > span, .sidebar > div:last-child > div { display:none !important; }
+  .sidebar nav { padding-left:6px;padding-right:6px; }
+  .sidebar .nav-link { justify-content:center;padding-left:0;padding-right:0;height:38px; }
+  .sidebar > div:nth-child(2) { margin:12px 7px 8px;padding:9px 0;justify-content:center; }
+  .sidebar > div:last-child { padding:8px 5px; }
+  .sidebar > div:last-child button { font-size:0; }
+  .app-shell > div:nth-child(2) { margin-left:56px !important; }
+}

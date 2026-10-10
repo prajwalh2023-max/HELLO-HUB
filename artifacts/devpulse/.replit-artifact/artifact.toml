@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "DevPulse"
+description = "A developer intelligence dashboard that turns repository activity into productivity trends, pull request insights, workload signals, collaboration patterns, code hotspots, and clearly labeled demo recommendations."
+version = "1.0.0"
+id = "artifacts/devpulse"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21976
+
+[services.development]
+run = "pnpm --filter @workspace/devpulse run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/devpulse", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/devpulse/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21976"
+BASE_PATH = "/"
