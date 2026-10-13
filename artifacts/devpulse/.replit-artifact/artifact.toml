@@ -1,7 +1,7 @@
 kind = "web"
 previewPath = "/"
 title = "DevPulse"
-description = "A developer intelligence dashboard that turns repository activity into productivity trends, pull request insights, workload signals, collaboration patterns, code hotspots, and clearly labeled demo recommendations."
+description = "A Streamlit developer productivity metrics dashboard aligned with the Software Metrics report, with demo data clearly labeled until GitHub access is configured."
 version = "1.0.0"
 id = "artifacts/devpulse"
 router = "path"
@@ -12,16 +12,22 @@ paths = [ "/" ]
 localPort = 21976
 
 [services.development]
-run = "pnpm --filter @workspace/devpulse run dev"
+run = "uv run --project ../.. streamlit run app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true --browser.gatherUsageStats false"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/devpulse", "run", "build" ]
-serve = "static"
-publicDir = "artifacts/devpulse/dist/public"
 
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
+[services.production.build]
+args = [ "uv", "sync", "--project", "../..", "--frozen" ]
+
+[services.production.run]
+args = [ "uv", "run", "--project", "../..", "streamlit", "run", "app.py", "--server.address", "0.0.0.0", "--server.port", "21976", "--server.headless", "true", "--browser.gatherUsageStats", "false" ]
+
+[services.production.run.env]
+PORT = "21976"
+BASE_PATH = "/"
+
+[services.production.health.startup]
+path = "/"
 
 [services.env]
 PORT = "21976"
